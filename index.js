@@ -4,6 +4,7 @@ const phoneToDisplay = () => {
 };
 
 const runWebsite = (isShowMore) => {
+    loading(true);
   let inputField = document.querySelector(".input").value;
   if (inputField === "") {
     getProducts((inputField = "a"), isShowMore);
@@ -57,4 +58,19 @@ const setProducts = (phoneData, isShowMore) => {
         `;
     phoneContainer.appendChild(phoneCard);
   }
+  loading(false);
 };
+
+
+const loading = (isLoading) => {
+    const loadingScreen = document.getElementById("loading-screen");
+console.log(loadingScreen)
+    if (isLoading) {
+        loadingScreen.classList.remove("hidden");
+    } else {
+        loadingScreen.classList.add("hidden");
+    }
+
+
+}
+
